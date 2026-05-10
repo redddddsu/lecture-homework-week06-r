@@ -21,7 +21,7 @@ irq_handler:
     sub lr, lr, #4
     stmfd sp!, {r0-r12, lr} // stack ALL registers
     bl IRQ_handler // call IRQ_hanler() in C
-    ldmfd sp!, {r0-r12, pc}^ // return
+    ldmfd sp!, {r0-r12, lr}^
 
 lock: // mask out IRQ interrupts
     MRS r0, cpsr
